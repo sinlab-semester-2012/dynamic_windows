@@ -9,16 +9,9 @@ float zoomScale;
 int newWidth;
 int screenShift;
 
-PVector[] userHeads;
-int noHeads = 2;
-
-boolean userFound = false;
-boolean drawHead = true;
-int distType = 1;
-
 boolean perspective = false;
 
-// Flipxel
+// initial values
 Flipxel3D[] flipxels;
 int noRows = 36;
 int noCols = 64;
@@ -29,12 +22,18 @@ int pixDelta = 15;
 int pixRadius = 300;
 int radDelta = 100;
 
+PVector[] userHeads;
+int noHeads = 4;
+
+boolean userFound = false;
+boolean drawHead = true;
+int distType = 1;
+
 int maxDist = 2500;
 int distDelta = 300;
 
-
 void setup() {
-  size(1920, 1080, P3D);
+  size(displayWidth, displayHeight, P3D);
   stroke(0);
   ortho();
   rectMode(CENTER);
@@ -171,9 +170,6 @@ void flipxelSize(int sign) {
     pixSize = max(pixSize - pixDelta, pixDelta);    
   }
   
-  noRows = ceil(height / (float)pixSize);
-  noCols = ceil(width / (float)pixSize);
-  
   initFlipxels();
 }
 
@@ -198,7 +194,10 @@ void flipxelDistance(int sign) {
   
 }
 
-void initFlipxels() {  
+void initFlipxels() {
+  noRows = ceil(height / (float)pixSize);
+  noCols = ceil(width / (float)pixSize);
+  
   flipxels = new Flipxel3D[noRows*noCols];
 
   for (int i=0; i<flipxels.length; i++) {
