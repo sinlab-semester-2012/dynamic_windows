@@ -4,6 +4,7 @@ class Flipxel3D {
   int size;
   float angle = 0.0;
   boolean updated = false;
+  color clr = color(74,84,94);
   
 
   Flipxel3D(int tx, int ty, int tz, int ts, int trd) {
@@ -78,7 +79,7 @@ class Flipxel3D {
     
     rotateY(angle);
 
-    fill(100,50,50);
+    fill(clr);
     rect(0,0, size, size);
     popMatrix();
   }

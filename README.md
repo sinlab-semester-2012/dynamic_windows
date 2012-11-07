@@ -6,7 +6,6 @@ by Carlos Sanchez Witt.
 Description
 ===========
 
-
 Master Semester Project, SINLAB/LDM, EPFL.
 
 The aim of this project is to experiment with the concept of windows and how 
@@ -32,9 +31,9 @@ Setup and Dependencies
 	
 * Run the Processing sketch.
 
-Both 32 and 64-bit versions work for the virtual simulation, forther 
+Both 32 and 64-bit versions work for the virtual simulation, further 
 integration with a physical prototype might only work with 32-bit versions 
-(work in progres.)
+(work in progress.)
 
 Instructions
 ============
@@ -47,7 +46,7 @@ Setup and run:
 - A grid will appear, these are the flipping pixels (Flipxels).
 - Stand in front of kinect until recognized (up to 4 users).
 - A window will open in front of your head (default occlusion mode), revealing 
-a mirror image of what the Kinect sees (full color image).
+  a mirror image of what the Kinect sees (full color image).
 
 Keyboard controls:
 - Number keys = toggle occlusion modes (see Flipxel class for details).
@@ -57,26 +56,23 @@ Keyboard controls:
 - P = perspective mode.
 - O = orthographic mode.
 
-Expected resolution of 10920x1080, should work at other resolutions but has 
-not been tested.
+Works on any resolution, expects width > height.
+4:3 resolution preferred (to match Kinect's capture.)
 
 Development Status
 ==================
-
-Week 7:
-- Current version of virtual simulation (milestone_1_grid) fully working.
 
 To Do / Issues
 --------------
 - Physical prototype.
 - Refine occlusion methods, look into what happens when overlaps occur.
 - Treat case of people leaving the "screen" (or not, should be done within 
-simple-openNI)
-- Head position obtained from Kinect slightly too high (might want to average 
-  head & neck)
+  simple-openNI)
+- Current demo requires Processing 2+, interfacing with Arduino might require
+  downgrading to 1.5.
 
-Previous protyping steps
-------------------------
+Development Journal
+-------------------
 
 Week 1:
 - First meeting with Alex, discussion of starting point.
@@ -87,7 +83,7 @@ Week 2:
 - Decided on which idea to focus on.
 - Environment setup (Processing).
 - 2D simulation of top-view situation, 1D flipxels (lines), mouse serves as 
-  user position in YZ plane. Useful to get an initial idea and math formulae 
+  user position in YZ plane. Useful to get an initial idea and math formulas 
   working.
   
 Week 3:
@@ -95,7 +91,7 @@ Week 3:
   position in XY plane. Useful to visualize grid and implement initial 
   occlusion modes.
 - Initial simple-openNI experimentation, registering position of users in 2D 
-  plane, converting to screen cordinates and drawing a skeleton.
+  plane, converting to screen coordinates and drawing a skeleton.
   
 Weeks 4-5:
 - 3D simulation of frontal view, integration of Kinect user detection (XY user 
@@ -104,10 +100,13 @@ Weeks 4-5:
 - Rewriting of application to allow for multiple users.
 
 Week 6:
-- Arduino research, documentation needed to interfacec physical prototype with 
+- Arduino research, documentation needed to interface physical prototype with 
   Processing found.
 - Application refinement, keyboard control, support for multiple resolutions.
 
+Week 7:
+- Current version of virtual simulation (milestone_1_grid) fully working.
+- Received new Arduino, tested it with simple "Hello World"-like applications.
 
---------------------------------------------------------------------------------
-s
+Week 8:
+- Milestone 1 presentation and demo.

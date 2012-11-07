@@ -17,7 +17,7 @@ int noRows = 36;
 int noCols = 64;
 
 int pixSize = 30;
-int pixDelta = 15;
+int pixDelta = 10;
 
 int pixRadius = 300;
 int radDelta = 100;
@@ -231,11 +231,15 @@ void trackHeads() {
 void findHead(int userId, int headInd) {
    // get 3D position of head
   PVector tmpHead = new PVector();
+  PVector tmpNeck = new PVector();
   kinect.getJointPositionSkeleton(userId,SimpleOpenNI.SKEL_HEAD,tmpHead);
+  kinect.getJointPositionSkeleton(userId,SimpleOpenNI.SKEL_NECK,tmpNeck);
+  
+  PVector tmpEyes = PVector.add(PVector.mult(tmpHead, 0.6),PVector.mult(tmpNeck, 0.4));
 
   // convert the detected position to "projective" coordinates that will match the depth image
   PVector tmpHeadProj = new PVector();
-  kinect.convertRealWorldToProjective(tmpHead, tmpHeadProj);
+  kinect.convertRealWorldToProjective(tmpEyes, tmpHeadProj);
   
   userHeads[headInd] = new PVector(screenShift + zoomScale*tmpHeadProj.x, zoomScale*tmpHeadProj.y, tmpHeadProj.z);
 }
@@ -249,7 +253,7 @@ void drawHead(int headInd) {
 
 void drawKinectImage() {
   image(kinect.rgbImage(),screenShift,0, newWidth, height);
-  fill(255,255,255,127);
+  fill(127,127,127,127);
   rect(width/2, height/2, width, height);
 }
 
