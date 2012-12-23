@@ -15,69 +15,55 @@ Furthermore, the binary status of walls and windows is no longer the status
 quo. 
 
 Contents
-========
+--------
 
-- src: application code (1 Processing sketch per subfolder)
-- doc: extra documentation
+- src: application code (1 Processing/Arduino sketch per subfolder)
+- doc: extra documentation (images, pdfs, etc)
 
 Setup and Dependencies
-======================
+----------------------
 
-* Requires Kinect for Xbox 360.
+* Virtual simulation requires Kinect for Xbox 360.
 
 * Download and setup:
-	- Processing (http://processing.org/)
+	- Processing 2.0x (http://processing.org/)
 	- simple-openNI (https://code.google.com/p/simple-openni/)
 	
 * Run the Processing sketch.
 
-Both 32 and 64-bit versions work for the virtual simulation, further 
-integration with a physical prototype might only work with 32-bit versions 
-(work in progress.)
+Both 32 and 64-bit versions work for the virtual simulation.
 
-Instructions
-============
+* Physical prototypes are only supported by 32-bit Processing and require using 
+  an older dll for the serial library as follows:
 
-milestone_1_grid
-----------------
+copy "rxtxSerial.dll" from:
+  processing-1.5.1\modes\java\libraries\serial\library\windows32
+to:
+  processing-2.0xx\modes\java\libraries\serial\library\windows32
+  
+First phyisical prototype works with an Arduino 2009.
+Final prototype runs using a Pololu Mini Maestro USB Servo Controller and 
+receives commands directly from Processing.
 
-Setup and run:
-- Run sketch in full screen mode (Shift+Ctrl+R).
-- A grid will appear, these are the flipping pixels (Flipxels).
-- Stand in front of kinect until recognized (up to 4 users).
-- A window will open in front of your head (default occlusion mode), revealing 
-  a mirror image of what the Kinect sees (full color image).
+Running Instructions
+====================
 
-Keyboard controls:
-- Number keys = toggle occlusion modes (see Flipxel class for details).
-- Q,W = decrease, increase Flipxel size.
-- A,S = decrease, increase Flipxel active radius (max radial distance to user).
-- Y,X = decrease, increase Flipxel active distance (max Z distance to user).
-- P = perspective mode.
-- O = orthographic mode.
-
-Works on any resolution, expects width > height.
-4:3 resolution preferred (to match Kinect's capture.)
+See readme inside application code folder.
 
 Development Status
-==================
+------------------
 
 To Do / Issues
---------------
-- Physical prototype.
+===============
+- Physical prototype, work in progress.
 - Refine occlusion methods, look into what happens when overlaps occur.
-- Treat case of people leaving the "screen" (or not, should be done within 
-  simple-openNI)
-- Current demo requires Processing 2+, interfacing with Arduino might require
-  downgrading to 1.5.
 
 Development Journal
--------------------
+===================
 
 Week 1:
 - First meeting with Alex, discussion of starting point.
-- Brainstorming, 10 ideas presented:
-https://docs.google.com/drawings/d/1Bdf2ic_uqQch1j4MZ-t4-P2q23K1SHFOxOTZ_wEGIK4/edit
+- Brainstorming, 10 ideas presented (see /doc/interactive_walls_10_ideas.png)
 
 Week 2:
 - Decided on which idea to focus on.
@@ -100,13 +86,59 @@ Weeks 4-5:
 - Rewriting of application to allow for multiple users.
 
 Week 6:
-- Arduino research, documentation needed to interface physical prototype with 
-  Processing found.
+- Researched Arduino and thought of how to use it to create a physical
+  prototype.
 - Application refinement, keyboard control, support for multiple resolutions.
 
 Week 7:
 - Current version of virtual simulation (milestone_1_grid) fully working.
-- Received new Arduino, tested it with simple "Hello World"-like applications.
 
 Week 8:
 - Milestone 1 presentation and demo.
+- Received new Arduino, tested it with simple "Hello World"-like application
+  (led).
+
+Week 9:
+- More Arduino research, documentation needed to interface physical prototype 
+  with Processing found.
+
+Week 10:
+- First arduino experiments with servomotor.
+- Tried to link with Processing unsuccessfully.
+
+Week 11:
+- Managed to link Arduino with Processing (copy serial DLL from 1.5X to 2.0Xb)
+- Implemented first Arduino application of a single physical pixel.
+
+Week 12:
+- Build first physical prototype consisting of 2 servos/pixels, legos and 
+  cardboard.
+- First demo video for the second presentation.
+
+Week 13:
+- Milestone 2 presentation and demo. Discussion with SinLab members about next
+  objectives.
+- Refocus of the application: the tiles/pixels are not necessary, a simpler
+  implementation based of window blinds (track blinds to be precise) is the next
+  obective (simple to build, higher impact on the audience than 2 tiles).
+  
+Week 14:
+- Received new hardware: Pololu Mini Maestro 24-Channel USB Servo Controller.
+- Research on new servo controller ("Maestro"), basic Windows installation and 
+  first wiring tests. In order to power the servos, required an external power
+  supply.
+- In order to command servos, sent Mini-SSC protocol commands directly from
+  Processing through the right serial port.
+- Defined schedule for remaining weeks as follows.
+  
+Week 15: (Christmas)
+- Define functions needed to command multiple servos and test them.
+- Sketch the final prototype and determine needed components to build it.
+- Try to buy as many components as I can.
+
+Week 16: (New Year)
+- Buy any extra components needed and start building.
+- Ideally finish building by Friday 4.
+
+Week 17: (Final presentation)
+- Create video presentation and document all progress in the wiki page.
