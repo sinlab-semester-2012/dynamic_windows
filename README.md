@@ -12,12 +12,13 @@ The aim of this project is to experiment with the concept of windows and how
 people act in their presence. By having dynamic windows that react to user 
 presence, we can create a new type of interaction with architectural structures.
 Furthermore, the binary status of walls and windows is no longer the status 
-quo. 
+quo.
+
 
 Contents
 --------
 
-- src: application code (1 Processing/Arduino sketch per subfolder)
+- src: application code (1 sketch per subfolder)
 - doc: extra documentation (images, pdfs, etc)
 
 Setup and Dependencies
@@ -31,32 +32,29 @@ Setup and Dependencies
 	
 * Run the Processing sketch.
 
-Both 32 and 64-bit versions work for the virtual simulation.
+Both 32 and 64-bit versions work for the virtual simulation. Physical prototypes
+are only supported by 32-bit Processing and require using an older dll for the 
+serial library as follows:
 
-* Physical prototypes are only supported by 32-bit Processing and require using 
-  an older dll for the serial library as follows:
-
-copy "rxtxSerial.dll" from:
-  processing-1.5.1\modes\java\libraries\serial\library\windows32
-to:
-  processing-2.0xx\modes\java\libraries\serial\library\windows32
+* copy: "rxtxSerial.dll"
+  from: processing-1.5.1\modes\java\libraries\serial\library\windows32
+  to:   processing-2.0xx\modes\java\libraries\serial\library\windows32
   
-First phyisical prototype works with an Arduino 2009.
-Final prototype runs using a Pololu Mini Maestro USB Servo Controller and 
+First physical prototype works with an Arduino 2009.
+Final prototype runs using Pololu's Mini Maestro USB Servo Controller and 
 receives commands directly from Processing.
 
 Running Instructions
 ====================
 
-See readme inside application code folder.
+See README inside application code folder.
 
 Development Status
 ------------------
 
 To Do / Issues
 ===============
-- Physical prototype, work in progress.
-- Refine occlusion methods, look into what happens when overlaps occur.
+- Create "How-to" summaries for each component on the Wiki page.
 
 Development Journal
 ===================
@@ -103,7 +101,7 @@ Week 9:
   with Processing found.
 
 Week 10:
-- First arduino experiments with servomotor.
+- First Arduino experiments with servomotor.
 - Tried to link with Processing unsuccessfully.
 
 Week 11:
@@ -120,7 +118,7 @@ Week 13:
   objectives.
 - Refocus of the application: the tiles/pixels are not necessary, a simpler
   implementation based of window blinds (track blinds to be precise) is the next
-  obective (simple to build, higher impact on the audience than 2 tiles).
+  objective (simple to build, higher impact on the audience than 2 tiles).
   
 Week 14:
 - Received new hardware: Pololu Mini Maestro 24-Channel USB Servo Controller.
@@ -138,7 +136,7 @@ Week 15: (Christmas)
 
 Week 16: (New Year)
 - Buy any extra components needed and start building.
-- Ideally finish building by Friday 4.
 
 Week 17: (Final presentation)
 - Create video presentation and document all progress in the wiki page.
+- Final presentation at la Manufacture.
