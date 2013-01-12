@@ -140,3 +140,4 @@ Week 16: (New Year)
 Week 17: (Final presentation)
 - Create video presentation and document all progress in the wiki page.
 - Final presentation at la Manufacture.
+
