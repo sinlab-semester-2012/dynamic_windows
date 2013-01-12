@@ -37,8 +37,8 @@ are only supported by 32-bit Processing and require using an older dll for the
 serial library as follows:
 
 * copy: "rxtxSerial.dll"
-  from: processing-1.5.1\modes\java\libraries\serial\library\windows32
-  to:   processing-2.0xx\modes\java\libraries\serial\library\windows32
+* from: processing-1.5.1\modes\java\libraries\serial\library\windows32
+* to:   processing-2.0xx\modes\java\libraries\serial\library\windows32
   
 First physical prototype works with an Arduino 2009.
 Final prototype runs using Pololu's Mini Maestro USB Servo Controller and 
@@ -140,3 +140,4 @@ Week 16: (New Year)
 Week 17: (Final presentation)
 - Create video presentation and document all progress in the wiki page.
 - Final presentation at la Manufacture.
+
